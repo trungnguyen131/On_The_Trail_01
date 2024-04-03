@@ -1,0 +1,21 @@
+
+@use "../vendor/reponsive" as customSize;
+*, 
+*::after, 
+*::before {
+    margin:0;   /// khoảng cách 
+    padding: 0;  /// đệm
+    box-sizing: border-box;  /// border, padding
+    text-decoration: none; /// mất gạch chân thẻ a
+    list-style-type: none; /// mất . của thẻ li 
+    transition: 0.7s;
+}
+
+html {
+    font-size: 62.5%; // 1.2rem = 12px,  2rem = 20 rem
+    scroll-behavior: smooth;
+    font-size: 53%;
+	@include customSize.repon-sive(xl) {
+        font-size: 62.5%;
+	}
+}

@@ -1,0 +1,12 @@
+{
+  "name": "onthetrail_01",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build:css": "sass ./assets/sass/main.scss ./assets/p"
+  },
+  "devDependencies": {
+    "sass": "^1.72.0"
+  }
+}

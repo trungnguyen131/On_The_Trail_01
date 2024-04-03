@@ -1,0 +1,187 @@
+@use "../base" as fixHeader;
+@use "../vendor/reponsive" as repon;
+@use "../abstracts/mixin" as mix;
+@use "../components/logo_title" as logoTitle;
+
+header#block--header {
+    position: fixed; /// Bám theo phạm vi, vị trí của trình duyệt
+    top:0;
+    left: 0;
+    right:0;
+    z-index: 4000;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    @include mix.StyleElement(100%, 11rem);
+
+    .header-navbar,
+    .logo--title, 
+    .logo-header, 
+    a.link-web {
+        height: 100%;
+    }
+    section.container-fluid {
+        padding: 0 20px;
+        height: 100%;
+        @include repon.repon-sive(sm-751) {
+            padding: 0 30px;
+        }
+    }
+    div.header-navbar {
+        margin: 0;
+        > * {
+            padding: 0;
+            margin: 0
+        }
+        // ============ Thành phần 1
+        @include logoTitle.logoTitle(fixHeader.$color-tan-title, #F4DEC4);
+        
+        // ============ Thành phần 2
+        div.col.search {
+            display: none;
+            @include repon.repon-sive(sm-751) {
+                display: block;
+            }
+            main.inpSearch {
+                transition: all 1s;
+                display: flex;
+                .inPut-search {
+                    margin: 0 auto;
+                    border: 0.17rem solid #fff; //0.17rem = 1.7px
+                    position: relative;
+                    width: 26rem; // 26rem = 260px
+                    height: 5.2rem; // 5.2rem = 52px
+                    .box-inp-search {
+                        content: '';
+                        position: absolute;
+                        inset: 0.01rem; //0.02rem = 0.2px
+                        background-color: fixHeader.$color-green-header; 
+                        @include mix.boxFlex();
+                        transition: all 0.3s ease;   
+                        .myInpu {
+                            padding-left:1.9rem; //1.9rem = 19px
+                            padding-right: 1.5rem; //1.5rem = 15px
+                            @include mix.border-ouline();
+                            flex-grow: 1;
+                            font-size: 1.8rem; //1.8rem = 18px
+                            width: 75%;
+                            color:#fff;
+                        }
+                        ::placeholder {
+                            font-size: 1.6rem; // 1.9rem = 19px
+                            color:#fff;
+                        }
+                        button {
+                            @include mix.border-ouline();
+                            padding-right: 1.2rem; // 1.2rem = 12px
+                            padding-left: 1.4rem; // 1.4rem = 14px
+                            height: 100%;
+                            width: 7rem;
+                            background-color: fixHeader.$color-green-header;
+                            background-color: rgba($color: #000000, $alpha: 0.2);
+                            i {
+                                font-size: 1.4rem ; //1.7rem  = 17px
+                                color:#fff;
+                            }
+                            &:hover {
+                                cursor: pointer;
+                                background-color: rgba($color: #000000, $alpha: 0.4);
+                            }
+                        }
+                    }  &:hover .box-inp-search {
+                        inset: 0.08rem; //0.1rem = 1px
+                    }
+                }
+            }
+        }
+        
+        // ============ Thành phần 3
+        div.col.navi-hiden {
+            display: none;
+            @include repon.repon-sive(xl) {
+                display: block;
+            }
+            article.navication-lists {
+                nav > ul.list--items {
+                    text-align: right;
+                }
+                li.navi--item {
+                    display:inline-block ;                    
+                    a.navi_link {
+                        margin-inline-start: 30px;
+                        position: relative;
+                        &::before {
+                            content: " ";
+                            position: absolute;
+                            height: 1px;
+                            background-color: fixHeader.$color-white;
+                            bottom: -4px;
+                            transition: all 0.3s linear;
+                            right:0;
+                            width: 0;
+                        }
+                        
+                        &:hover::before {
+                            left: 0;
+                            width: 100%;
+                        }
+                        & {
+                            color:fixHeader.$color-white;
+                            font-family: 'Raleway', sans-serif;
+                            font-size:1.4rem ;
+                            font-weight: 500;
+                            transition: color 0.3s linear;
+                            &:hover {
+                                color:rgba(221, 166, 64, 0.923);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        ///=========bars
+        div.bars-none {
+            @include repon.repon-sive(xl) {
+                display: none;
+            }
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            a {
+                display:none;
+                margin-right: 20px;
+                display: block;
+                @include repon.repon-sive(sm-751) {
+                    display: none;
+                }
+                > i {
+                    color:#fff;
+                    font-size: 2.2rem;
+                }
+            } 
+            label.box-bars {
+                display: block;
+                float: right;
+                font-size: 1.8rem; //1.8rem = 18px
+                color:#364037;
+                transition-delay:0.5s ;
+                cursor: pointer;
+                div.box-bars-menu {
+                    width: 2.7rem; // 2.5rem = 25px
+                    height: 0.3rem; //0.3rem = 3px
+                    background-color:#fff;
+                    margin: 0.8rem 0; //0.8rem = 8px
+                }
+            } /// end-bars
+        }
+
+        div.col.bell {
+            display: block;
+            @include repon.repon-sive(sm-751) {
+                display: none;
+            }
+            a > i {
+                color:#fff;
+                font-size: 2.4rem;
+            }
+        }
+    }
+}

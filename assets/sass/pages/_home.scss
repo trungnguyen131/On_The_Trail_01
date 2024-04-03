@@ -1,0 +1,513 @@
+@use "../base" as customHome;
+@use "../abstracts/mixin" as mixHome;
+@use "../components/button" as btnHome;
+@use "../vendor/reponsive" as reponHome;
+
+div.block-home {
+    padding-bottom: 70px;
+    ////====== video-contact-user =============
+    section.box-video-avatar {
+        position: relative;
+        height: 130vh;
+        @include reponHome.repon-sive(lg) {
+            height: 150vh;
+        }
+        // ====== video =======
+        video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            object-fit: cover;
+        } /// end video
+
+        div.container-relative {
+            @include reponHome.repon-sive(sm-751) {
+                text-align: left;
+                top:0;
+            }
+            text-align: center;
+            position: relative;
+            top:10rem;
+            section.box-avt-info {
+                position: relative;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+                @include reponHome.repon-sive(sm-751) {
+                    width: 23rem;
+                    background-color: customHome.$color-box;
+                }
+                background-color: rgba(customHome.$color-box, $alpha: 0.88);
+                width: 30rem;
+                display: inline-block;
+                text-align: center;
+                padding-bottom: 25px;
+                div.box-img {
+                    width: 16rem;
+                    height: 16rem;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 28px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                } 
+                h3 {
+                    color:customHome.$color-white;
+                    text-align: center;
+                    font-size: 3rem;
+                    margin-top: 11px;
+                }
+    
+                span { 
+                    color:customHome.$color-white;
+                    font-size: 1.7rem;
+                    margin-top: 8px;
+                    font-family: "raleway",sans-serif;
+                }
+            }
+        }
+    } ////====== end-video-contact-user==========
+
+    ////===== post-feature ====================
+    div.block-featured {
+        @include reponHome.repon-sive(sm-751) {
+            padding:0 30px;
+        }
+        padding:0 20px;
+        article.post-feature { 
+            background-color:customHome.$color-green-header-rgba;
+            border-top-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            box-shadow: 0 0.5px 3px rgba(17, 17, 17, 0.5);
+            display: block;
+            @include reponHome.repon-sive(sm-751) {
+                padding: 25px 40px 40px 40px;
+            }
+            padding: 25px 27px 40px 27px;
+            backdrop-filter: blur(0.3rem); 
+            margin-top: -350px;
+            left: 50%;
+            transform: translateX(-50%);
+            position: relative; /// vi tri tuong doi 
+            z-index: 2000; 
+            max-width: 1060px !important;
+            @include reponHome.repon-sive(lg) {
+                max-width: 730px !important;
+                margin-top: -470px;
+            }
+            div.img-title-post.row {
+                gap: 40px;
+                align-items: initial;
+                flex-wrap: nowrap;
+                margin: 0;
+                > * {
+                    padding: 0;
+                    margin: 0;
+                }
+                @include reponHome.repon-sive(lg) {
+                    flex-direction: column;
+                    gap: 0px;
+                }
+                figure.post-imgae {
+                    max-width: 466.66px;
+                    flex-grow: 1;
+                    @include reponHome.repon-sive(lg) {
+                        max-width: 100%;
+                    }
+                    img {
+                        @include mixHome.zeset_images(cover);
+                    }
+                }
+    
+                div.post-hd-title {
+                    text-align: left;
+                    flex-grow: 1;
+                    padding-block: 28px;
+                    @include reponHome.repon-sive(lg) {
+                        padding-block-start: 28px;
+                        padding-block-end: 0;
+                    }
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+    
+                    & > * {
+                        color:customHome.$color-white;
+                        font-size: 18px;
+                    }
+    
+                    time {
+                        display: inline-block; 
+                        font-size:1.3rem;
+                        margin-bottom: 25px;
+                    }
+    
+                    h4 {
+                        font-family: initial; 
+                        font-size: 3.2rem;
+                        margin-bottom: 20px;
+                        transition: all 0.2s linear;
+                    }
+                    
+                    p.post-heading {
+                        color:customHome.$color-white;
+                        @include reponHome.repon-sive(xl) {
+                            font-size: 1.7rem;
+                        }
+                        font-size: 1.9rem;
+                        line-height: 1.4;
+                        padding-right: 20px;
+                        transition: all 0.2s linear;
+                        max-width:422px; /// độ rộng tối đa mà thẻ p đạt được (có thể nhỏ hơn nếu cần thiết)
+                        @include reponHome.repon-sive(lg) {
+                            max-width: 100%;
+                        }
+                    }
+    
+                    & .tm-tl-pt :is(h4, p):hover {
+                        color:customHome.$color-box ;
+                        cursor: pointer ;
+                    }
+    
+                    div.line-code {
+                        padding-top: 17px;
+                        position: relative;
+                        max-width: 96%;
+                        @include reponHome.repon-sive(lg) {
+                            margin-top: 4rem;
+                        }
+                        &::before {
+                            content: " ";
+                            position: absolute;
+                            width: 100%;
+                            height: 2px;
+                            top:0;
+                            left: 0;
+                            right: 0;
+                            background-color: #5E665F;
+                        }
+                    }
+                }
+            }
+    
+            h3 {
+                font-family: initial; /// initial lấy style mặc định của trình duyệt
+                color:customHome.$color-white;
+                font-size: 28px;
+                text-align: left;
+                margin-bottom: 23.5px;
+            }
+        }
+    }////===== end-post-feature ===============
+
+    ////===== post-recent =====================
+    div.post-container-pd {
+        @include reponHome.repon-sive(sm-751) {
+            padding:0 30px;
+        }
+        padding:0 20px;
+        section.mx-w-post {
+            text-align: left;
+            width: 100%;
+            max-width: 1060px;
+            @include reponHome.repon-sive(lg) {
+                max-width: 730px;
+    
+            }
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 60px;
+            div.layout-recent-title {
+                h3 {
+                    margin-bottom: 32px;
+                    color:customHome.$color-green-header;
+                    font-size: 30px;
+                    font-family: initial;
+                }
+                article.fl-recent-post {
+                    div.row {
+                        @include reponHome.repon-sive(mobile) {
+                            margin-top: -30px;
+                            flex-direction: column
+                        }
+                        align-items: initial;
+                        div.col {
+                            @include reponHome.repon-sive(mobile) {
+                                width: 100%;
+                                flex-basis: 100%;
+                                margin-top: 30px;
+                            }
+                            article.recent-item {
+                                box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, 
+                                                rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+                                figure, img {
+                                    @include mixHome.StyleElement(100%, 100%, initial);
+                                    object-fit: cover;
+                                    display: block; 
+                                }
+    
+                                div.recent-heading {
+                                    padding: 30px 30px 32px 30px;
+                                    transition: all 0.2s linear;
+                                    &:hover a > h2 {
+                                        color:customHome.$color-box;
+                                    }
+                                    a > h2 {
+                                        font-size: 2.9rem;
+                                        font-family: initial;
+                                        color:customHome.$color-green-header;
+                                        transition: all 0.2s linear;
+                                        position: relative;
+                                        padding-bottom: 15px;
+                                        line-height: 3.5rem;
+                                        &:hover {
+                                            color:customHome.$color-box;
+                                        }
+                                        &::before {
+                                            content: " ";
+                                            position: absolute;
+                                            width: 100%;
+                                            height: 0.8px;
+                                            background-color: #ccc;
+                                            bottom:0;
+                                        }
+                                    }
+                                    a:has(.icon-chat) {
+                                        margin-top: 18px;
+                                        display: inline-block;
+                                        color:customHome.$color-green-header;
+                                        transition: all 0.2s linear;
+                                        font-size: 20px;
+                                        &:hover {
+                                            color:customHome.$color-box;
+                                        }
+                                        div.fl-icon-o {
+                                            display: flex;
+                                            align-items: center;
+                                            span {
+                                                font-size: 17px;
+                                                margin-left: 8px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+    
+                            &:nth-child(3) {
+                                section.pd-recent {
+                                    // @include reponHome.repon-sive(mobile) {
+                                    //     flex-grow: 1;
+                                    // }
+                                    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, 
+                                                    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+                                    padding: 30px 30px 32px 30px;
+                                    display: flex;
+                                    height: 100%;
+
+                                    flex-direction: column;
+                                    justify-content: space-between;
+                                    article.recent-item-3 {
+                                        h4 > a {
+                                            font-size: 27px;
+                                            font-family: initial;
+                                            color:customHome.$color-green-header;
+                                            transition: all 0.2s linear;
+                                            margin-bottom: 20px;
+                                            display: inline-block;
+                                            &:hover {
+                                                color:customHome.$color-box;
+                                            }
+                                        }
+                                        a > p.heading-recent {
+                                            color:customHome.$color-green-header;
+                                            font-size: 18.7px;
+                                            //////
+                                            
+                                            display:-webkit-box;
+                                            -webkit-line-clamp:3;
+                                            -webkit-box-orient: vertical;
+                                            overflow: hidden;
+                                            text-overflow: ellipsis;
+                                            word-break: break-word;
+                                            &:hover {
+                                                color:customHome.$color-box;
+                                            }
+                                        }
+                                    }
+                                    article.box-3-fl-icon-o {
+                                        margin-bottom: 3px;
+                                        a:has(.icon-chat) {
+                                            margin-top: 18px;
+                                            display: block;
+                                            color:customHome.$color-green-header;
+                                            transition: all 0.2s linear;
+                                            font-size: 20px;
+                                            &:hover {
+                                                color:customHome.$color-box;
+                                            }
+                                            div.fl-icon-o {
+                                                display: flex;
+                                                align-items: center;
+                                                padding-top: 19px;
+                                                position: relative;
+                                                &::before {
+                                                    content: " ";
+                                                    position: absolute;
+                                                    width: 100%;
+                                                    height: 0.3px;
+                                                    background-color: #ccc;
+                                                    top:0;
+                                                    left: 0;
+                                                    right:0;
+                                                }
+                                                span {
+                                                    font-size: 17px;
+                                                    margin-left: 8px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }////=====enf-post-recent =================
+    }
+
+    ////===== Strip-block =====================
+    section.block-strip {
+        background-color: customHome.$color-box;
+        margin-top: 71px;
+        padding:0 20px;
+        @include reponHome.repon-sive(sm-751) {
+            padding:0 30px;
+        }
+        div.box-numbers-strip {
+            padding:0 0 4rem 0 ;
+            @include reponHome.repon-sive(sm-751) {
+                padding:4rem 0 4rem 0 ;
+            }
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 28rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(28rem, 1fr));
+            @include reponHome.repon-sive(sm-751) {
+                grid-template-columns: repeat(auto-fit,minmax(20rem, 1fr));
+            }
+            align-items: center;
+            @for $run from 1 through 4 { 
+                article.i-strip-col-#{$run} {
+                    span:nth-child(1) {
+                        font-size:6rem ;
+                        color:customHome.$color-tan-title-2;
+                        font-family:initial;
+                        font-weight: 600;
+                    }
+
+                    span:nth-child(2) {
+                        color:customHome.$color-white;
+                        display: block;
+                        font-size: 1.9rem;
+                        text-align: center;
+                        line-height: 2.6rem;
+                    }
+                    margin-top: 30px;
+                    @include reponHome.repon-sive(sm-751) {
+                        margin-top: 0;
+                    }
+                }
+                // article.i-strip-col-#{$run}.strip-mt {
+                // }
+            }
+        }
+    }////=====end-Strip-block =================
+
+    ///===== layout-toure =====================
+    section.pro-layout-toure.container-fluid {
+        margin: 70px 0 0 0;
+        --grid-gutter-x: 40px;
+        --grid-gutter-y: 40px;
+        @include reponHome.repon-sive(sm-751) {
+            --grid-gutter-x: 60px;
+            --grid-gutter-y: 60px;
+        }
+        div.row {
+                --grid-gutter-x: 12px;
+                --grid-gutter-y: 12px;
+
+                div.col {
+                    position: relative;
+                    div.image-toure {
+                        width: 100%;
+                        height: 100%;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            display: block;
+                            @include mixHome.zeset_images(cover);
+                        }
+                    }
+
+                    div.content-toure {
+                        position: absolute;
+                        width: calc(100% - 12px);
+                        height: 100%;
+                        top:0;
+                        left: 6px;
+                        transition: all 0.1s linear;
+                        padding: 20px;
+                        &:hover {
+                            background-color: rgba($color: #000000, $alpha:0.6);
+                        }
+                        top:0;
+                        &:hover span {
+                            display: inline-block;
+                        }
+                        a {
+                            width: 100%;
+                            height: 100%;
+                            display: block;
+                            font-size: 16px;
+                            color:customHome.$color-white;
+                            line-height: 2.7rem;
+                            font-family: "Raleway", sans-serif;
+                            display: flex;
+                            span {
+                                display: inline-block;
+                                align-self: center;
+                                transition: all 0.1s linear;
+                                display: none; /// Ẩn element 
+                            }
+                        }
+                    }
+
+                    // &:is(:nth-child(5), :nth-child(6), :nth-child(7), :nth-child(8)) {
+                    //     margin-top:$wrap_spacing;
+                    // }
+                }
+            }
+
+        @include btnHome.button();
+    }///=====end-layout-toure =================
+}
+
+div.tab-content-item-1 {
+    animation: effect-op-home 1s ease;
+    @keyframes effect-op-home {
+        0% {
+            opacity: 0;
+            visibility: hidden;
+        }
+        100% {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+@use "../base" as customBtn;
+@mixin button() {
+    article.load {
+        margin-top: 42px;
+        > a {
+            padding: 1.25rem 3.8rem;
+            background-color: customBtn.$color-green-header;
+            display: inline-block;
+            transition: all 0.3s ease-out;
+            &:hover {
+                background-color: customBtn.$color-white;
+            }
+            &:hover > span {
+                color:customBtn.$color-green-header;
+            }
+            span {
+                transition: all 0.3s ease-out;
+                font-size: 1.5rem;
+                color:customBtn.$color-white;
+                font-weight: 300;
+            }
+        }
+    }
+    @content;
+}

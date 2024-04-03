@@ -1,0 +1,312 @@
+@use "../base" as variWwm;
+@use "../abstracts/mixin" as mixWwm;
+@use "../vendor/reponsive" as reponWwm;
+
+div.block-work-with-me {
+    background-image: url("/assets/");
+    padding-bottom: 90px;
+    background-position: bottom left;
+    background-repeat: repeat-x;
+    background-size:100% 90%;
+    width: 100%;
+    background-attachment: fixed;
+    background-clip: padding-box;
+    position: relative;
+    &::before {
+        content: " ";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.1);
+        top:0;
+        left:0;
+    }
+    div.work-with-me {
+        position: relative;
+        z-index: 1;
+        div.container-fluid {
+            max-width: 1360px;
+            --grid-gutter-x:40px;
+            --grid-gutter-y:40px;
+            @include reponWwm.repon-sive(sm-751) {
+                --grid-gutter-x:60px;
+                --grid-gutter-y:60px;
+            }
+        }
+        article.content-title-block-me {
+            h2 {
+                padding: 80px 0;
+                font-family: initial;
+                font-size: 3.7rem;
+                color:variWwm.$color-green-header;
+            }
+            div.layout-me {
+                border:1.7px solid variWwm.$color-green-header;
+                display: flex;
+                align-items: stretch;
+                --grid-gutter-x:0px;
+                --grid-gutter-y:0px;
+                flex-direction: column;
+                @include reponWwm.repon-sive(sm-751) {
+                    flex-direction: initial;
+                }
+                > div.col {
+                    margin-top: 0;
+                }
+                div.layout-item-me-imgae {
+                    flex-basis: 45%;
+                    img {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                div.layout-me-content-info {
+                    flex-grow: 1;
+                    flex-basis: 55%;
+                    padding: 30px 20px 30px 30px;
+                    background-color: variWwm.$color-box;
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    div.item-paragrap-me {
+                        margin: auto 0;
+                        max-width: 420px;
+                        p, h3 {
+                            color:#EEE6E1;
+                            font-size: 1.7rem;
+                            font-weight: 500;
+                            font-family: "Raleway", sans-serif;
+                            text-align: left;
+                        }
+                        .p-first {
+                            margin-bottom: 25px;
+                            line-height: 1.6;
+                        }
+                        h3 {
+                            font-size: 2.6rem;
+                            font-family: initial;
+                            font-weight: 600;
+                            margin-bottom: 30px;
+                        }
+                    }
+                }
+            }
+        }
+
+        div.container-fluid.max-w-custom {
+            max-width: 1200px;
+            article.featured-as {
+                margin-top: 150px;
+    
+                h4 {
+                    color:variWwm.$color-green-header;
+                    font-size: 2.1rem;
+                    font-weight: 400;
+                }
+    
+                div.featured-as-layout {
+                    display: grid;
+                    margin-top: 50px;
+                    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+                    @include reponWwm.repon-sive(lg) {
+                        grid-template-columns: repeat(auto-fit, minmax(265px,1fr));
+                        
+                        gap:60px;
+                    }
+                    svg {
+                        width:12.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+div.contact-box {
+    background-image: url(/app/images/bgc-image-mountain.webp);
+    padding-bottom: 90px;
+    background-position: bottom left;
+    background-repeat: repeat-x;
+    background-size:100% 90%;
+    width: 100%;
+    background-attachment: fixed;
+    background-clip: padding-box;
+    position: relative;
+        div.contact-box-content {
+        position: relative;
+        z-index: 1;
+        margin-top: 100px;
+        div.container-fluid {
+            max-width: 960px;
+            --grid-gutter-x:0px;
+            --grid-gutter-y: 0px;
+            @include reponWwm.repon-sive(sm-751) {
+                --grid-gutter-x:60px;
+                --grid-gutter-y:60px;
+            }
+        }
+        h3 {
+            color:rgb(47, 56, 48);
+            font-size: 3.2rem;
+            font-family: initial;
+            margin-bottom: 40px;
+            padding: 80px 30px 0;
+        }
+        nav.contact-us {
+            margin:23px auto 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include reponWwm.repon-sive(mobile) {
+                flex-direction: column;
+
+                > * {
+                    margin-top: 30px;
+                }
+            }
+            span.line-contact {
+                display: inline-block;
+                height: 18px;
+                width: 1.5px !important;
+                position: relative;
+                background-color: variWwm.$color-black;
+
+                @include reponWwm.repon-sive(mobile) {
+                    transform: rotate(90deg);
+                }
+            }
+            
+            li.us-item-info {
+                display: inline-block;
+                padding: 0 30px;
+                position: relative;
+
+                a {
+                    font-size: 2rem;
+                    font-weight: 400;
+                    color: variWwm.$color-green-header;
+                }
+
+                &:last-child {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    a {
+                        margin-right:15px ;
+                        color:variWwm.$color-black;
+
+                        &:last-child {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        div.form-input-contact {
+            max-width: 720px;
+            --grid-gutter-x:40px;
+            --grid-gutter-y: 40px;
+            form.form-input {
+                width: 100%;
+                div.firstName-input-text {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    div.input-4-first {
+                        margin-bottom: 20px;
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                        // max-width: 770px;
+                        width: 100%;
+                        grid-gap: 20px;
+                        @include reponWwm.repon-sive(mobile) {
+                            grid-gap: 30px;
+                            
+                        }
+                        div.style-input-all {
+                            text-align: left;
+                            label {
+                                font-size: 1.6rem;
+                                color:#7D837E;
+                                font-weight: 400;
+                                margin-bottom: 8px;
+                                display:inline-block;
+                            }
+                            div.box-input-first-name{
+                                input {
+                                    @include mixWwm.reset-border-outline();
+                                    width:100%;
+                                    display:block;
+                                    height: 5rem;
+                                    padding:0 3rem;
+                                    color:variWwm.$color-green-header;
+                                    background-color: rgba($color: #ffffff, $alpha: 0.4);
+                                    font-size: 1.7rem;
+                                    border:1.75px solid variWwm.$color-green-header;
+                                    &:is(:hover, :focus) {
+                                        border:1.8px solid variWwm.$color-green-header;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    div.input-textarea-submit {
+                        
+                        div.content-input-textarea {
+                            text-align: left;
+                            label {
+                                font-size: 1.6rem;
+                                color:#7D837E;
+                                font-weight: 400;
+                                margin-bottom: 8px;
+                                width:100%;
+                                display:block;
+                            }
+                            textarea {
+                                padding:20px;
+                                box-sizing: border-box;
+                                width: 100%;
+                                font-size: 1.7rem;
+                                resize: none;
+                                height:200px;
+                                color:variWwm.$color-white;
+                                box-sizing: border-box !important;
+                                @include mixWwm.reset-border-outline();
+                                border:1.7px solid variWwm.$color-green-header;
+                                background-color: rgba($color: #072403, $alpha: 0.7);
+                                &:is(:hover, :focus) {
+                                    border:1.8px solid variWwm.$color-green-header;
+                                }
+                            }
+                        }
+
+                        div.content-input-submit {
+                            margin-top: 30px;
+                            button.btn-submit {
+                                width:100%;
+                                display:block;
+                                height:60px;
+                                text-align: center;
+                                background-color: variWwm.$color-box;
+                                @include mixWwm.reset-border-outline();
+                                transition: background-color 0.25s linear;
+                                color:variWwm.$color-white;
+                                font-size: 1.7rem;
+                                border:1px solid variWwm.$color-green-header;
+                                &:hover {
+                                    background-color: variWwm.$color-green-header;
+                                }
+                            } 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

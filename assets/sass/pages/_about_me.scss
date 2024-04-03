@@ -1,0 +1,87 @@
+@use "../base" as variAbm;
+@use "../components/button" as btnAbm;
+@use "../vendor/reponsive" as reponAbm;
+
+div.block-me {
+    padding-bottom: 70px;
+        div.container-fluid {
+            max-width: 1360px;
+            --grid-gutter-x:40px;
+            --grid-gutter-y:40px;
+            @include reponAbm.repon-sive(sm-751) {
+                --grid-gutter-x:60px;
+                --grid-gutter-y:60px;
+            }
+        }
+        article.content-title-block-me {
+        h2 {
+            padding: 80px 0;
+            font-family: initial;
+            font-size: 3.7rem;
+            color:variAbm.$color-green-header;
+        }
+        div.layout-me {
+            border:1.7px solid variAbm.$color-green-header;
+            align-items: stretch;
+            --grid-gutter-x:0px;
+            --grid-gutter-y:0px;
+            // background-color: variAbm.$color-box ;
+            flex-direction: column;
+            @include reponAbm.repon-sive(sm-751) {
+                flex-direction: initial;
+            }
+            > div.col {
+                margin-top: 0;
+            }
+            div.layout-item-me-imgae {
+                flex-basis: 40%;
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            div.layout-me-content-info {
+                flex-grow: 1;
+                flex-basis: calc(60% - 30px);
+                background-color: variAbm.$color-box;
+                display: flex;
+                width: 100%;
+                padding: 30px 10px 30px 20px;
+                div.item-paragrap-me {
+                    margin: auto auto;
+                    max-width: 505px;
+                    p, h3 {
+                        color:#EEE6E1;
+                        font-size: 1.7rem;
+                        font-weight: 500;
+                        font-family: "Raleway", sans-serif;
+                        text-align: left;
+                        line-height: 1.6;
+                    }
+                    .p-first {
+                        margin-bottom: 25px;
+                    }
+                    h3 {
+                        font-size: 3.9rem;
+                        font-family: initial;
+                        font-weight: 600;
+                        margin-bottom: 30px;
+                    }
+
+                    @include btnAbm.button() {
+                        article.load {
+                            margin-top: 30px;
+                            text-align: left;
+                            > a {
+                                padding: 17px 19px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

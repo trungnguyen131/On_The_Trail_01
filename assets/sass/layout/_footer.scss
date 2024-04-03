@@ -1,0 +1,111 @@
+@use "../base" as customFt;
+@use "../abstracts/mixin" as mixFt;
+@use "../components/logo_title" as btnFt;
+@use "../vendor/reponsive" as reponFt;
+
+footer#block--footer {
+    background-color: customFt.$color-green-header;
+    min-height: 460px;
+    div.container-fluid {
+        max-width: 1113px;
+        --grid-gutter-x:30px;
+        --grid-gutter-y:30px;
+        div.row {
+            flex-direction: column;
+            @include reponFt.repon-sive(sm-751) {
+                flex-direction: initial;
+            }
+            --grid-gutter-y: 0;
+            padding-top: 60px;
+            display: flex;
+            height: auto;
+            justify-content: space-between;
+            align-items: flex-start;
+            @include btnFt.logoTitle(#fff, #fff);
+
+            .flexBasis {
+                flex-basis: 10% !important; 
+            }
+
+            article.col:nth-child(2) {
+                flex-grow: 1;
+                margin-top: 50px;
+                @include reponFt.repon-sive(sm-751) {
+                    margin-top: 0;
+                }
+                li {
+                    margin-bottom: 23.5px;
+                    a {
+                        color:#B6BEB7;
+                        font-size: 1.7rem;
+                    }
+                }
+            }
+
+            article.col:last-child {
+                margin-top: 30px;
+                @include reponFt.repon-sive(sm-751) {
+                    order: 2;
+                    margin-top: 0;
+                }
+                font-size: 1.9rem;
+                color:#F5F5F5;
+                flex-basis: 16%;
+                form {
+                    margin-top: 17px;
+                    display: block;
+                    div.ip-email {
+                        input[type = email] {
+                            padding: 1.5rem 2.5rem;
+                            font-size: 1.8rem;
+                            width: 100%;
+                            &::placeholder {
+                                color:customFt.$color-green-header;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                    div.ip-submit {
+                        margin-top: 17px;
+                        text-align: left;
+                        @include reponFt.repon-sive(sm-751) {
+                            text-align: right;
+                        }
+                        button[type = submit] {
+                            padding: 1.4rem 2.5rem;
+                            background-color: customFt.$color-box;
+                            @include mixFt.reset-border-outline();
+                            color:customFt.$color-white;
+                            font-weight: 400;
+                            transition: all 0.3s linear;
+                            @include reponFt.repon-sive(mobile) {
+                                width: 100%;
+                            }
+                            &:hover {
+                                background-color: customFt.$color-white;
+                                color:customFt.$color-box;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        div.center-powered {
+            text-align: center;
+            margin-top: 60px;
+            padding-bottom: 60px;
+            span.powered {
+                color:#F5F5F5;
+                display: inline-block;
+                font-size: 1.7rem;
+                letter-spacing: 0.8px;
+                font-family: "Raleway", sans-serif;
+                a {
+                    color:inherit;
+                    text-decoration:underline;
+                }
+            }
+        }
+    }
+}

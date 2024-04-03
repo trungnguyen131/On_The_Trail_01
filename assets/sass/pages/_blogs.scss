@@ -1,0 +1,331 @@
+@use "../base" as variBg;
+@use "../vendor/reponsive" as reponBg;
+div.block-blogs {
+    padding-bottom: 70px;
+    section.content-blogs.container-fluid {
+        --grid-gutter-x:40px;
+        --grid-gutter-y:40px;
+        @include reponBg.repon-sive(sm-751) {
+            --grid-gutter-x:60px;
+            --grid-gutter-y:60px;
+        }
+        padding-top: 80px;
+        max-width: 1024px;
+        h2 {
+            font-size: 37px;
+            color:variBg.$color-green-header;
+            font-family: initial;
+        }
+        article.post-blogs-block {
+            padding-top: 60px;
+            width: 100%;
+            div.layout-blogs-tab {
+                div.link-tab-blogs {
+                    padding: 30px 0;
+                    ul.list-tab-two {
+                        display: flex;
+                        text-align: left;
+                        li > a {
+                            font-size: 17px;
+                            color:variBg.$color-green-header;
+                            transition: all 0.2s linear;
+                            &:hover {
+                                color:variBg.$color-box;
+                            }
+                        }
+                        li:last-child {
+                            margin-left: 40px;
+                        }
+                    }
+                }
+                article.layout-items-blogs-recent {
+                    div.layout-items-blogs {
+                        &.hidden-blogs {
+                            display: none;
+                        }
+                        columns: 2 37rem;
+                        @include reponBg.repon-sive(sm-751) {
+                            gap: 20px;
+                        }
+                        gap: 15px;
+                        div.grid-blog-item {
+                            break-inside: avoid;
+                            border:1.3px solid #dddddd;
+                            &:is(:not(&:first-child, &:nth-child(5))) {
+                                margin-top: 15px;
+                            }
+                            @include reponBg.repon-sive(sm-751) {
+                                &:is(:not(&:first-child, &:nth-child(5))) {
+                                    margin-top: 20px;
+                                }
+                            }
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                display: block;
+                            }
+                        }
+
+                        div.info-blog-block {
+                            padding: 30px 15px;
+                            min-height: 320px;
+                            div.layout-avatar-img {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                div.block-admin {
+                                    display: flex;
+                                    div.custom-avatar {
+                                        width: 43px;
+                                        height: 43px;
+
+                                        svg {
+                                            width: 100%;
+                                            height: 100%;
+                                        }
+                                    }
+
+                                    div.fl-blog-admin-mar {
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content:space-evenly;
+                                        padding-left: 10px;
+                                        text-align: left;
+                                        div:first-child, div:last-child {
+                                            font-size: 13.8px;
+                                        }
+    
+                                        div.fl-admin-sp-svg {
+                                            display: flex;
+                                            align-items: center;
+                                            span:first-child {
+                                                margin-right: 3px;
+                                            }
+                                            span:last-child {
+                                                svg {
+                                                    fill:variBg.$color-green-header;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                div.dots-blog {
+                                    cursor: pointer;
+
+                                    button {
+                                        border:none;
+                                        outline: none;
+                                        background-color: transparent;
+                                        position: relative;
+                                        svg{
+                                            fill:variBg.$color-green-header !important;
+                                            &:hover {
+                                                fill:variBg.$color-box !important;
+                                            }
+                                        }
+
+                                        div.block-blog-share {
+                                            position: absolute;
+                                            padding: 18px 28px;
+                                            width: 250px;
+                                            display: flex;
+                                            align-items: center;
+                                            background-color: variBg.$color-white;
+                                            left: -267px;
+                                            top: 139%;
+                                            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                                            transition: all 0.2s linear;
+                                            &.animation {
+                                                animation: effect_share 0.2s linear forwards;
+                                            }
+                                            transform: translateY(-20px);
+                                            opacity: 0;
+                                            visibility: hidden;
+
+                                            @keyframes effect_share {
+                                                100% {
+                                                    opacity: 1;
+                                                    visibility: visible;
+                                                    transform: translateY(0px);
+                                                }
+                                            }
+                                            &:hover * {
+                                                color:variBg.$color-box;
+                                            }
+                                            div.icon-share-blog:hover > svg {
+                                                fill:variBg.$color-green-header ;
+                                            }
+                                            div.text-blog-share {
+                                                font-size: 1.7rem;
+                                                margin-left: 12px;
+                                                color:variBg.$color-green-header;
+                                                &:hover {
+                                                    color:variBg.$color-box;
+                                                }
+                                            }
+                                        }
+
+                                        div#myOverlay {
+                                            position: fixed;
+                                            top:0;
+                                            left: 0;
+                                            width: 100%;
+                                            height: 100vh;
+                                            z-index: 12000;
+                                            background-color: rgba($color: #000000, $alpha: 0.8);
+                                            display: flex;
+                                            cursor: initial;
+                                            opacity: 0;
+                                            visibility: hidden;
+                                            // transform: scale(0);
+                                            transition: all 0.1s linear;
+                                            &.click_overlay {
+                                                opacity: 1;
+                                                visibility: visible;
+                                                // transform: scale(1);
+                                            }
+                                            span > ion-icon {
+                                                color:variBg.$color-white;
+                                                position: absolute;
+                                                top:20px;
+                                                right: 20px;
+                                                font-size: 5rem;
+                                                font-weight: 300;
+                                                cursor: pointer;
+                                            }
+
+                                            div.pd-share {
+                                                margin: auto auto;
+                                                max-width: 500px;
+                                                @include reponBg.repon-sive(mobile) {
+                                                    max-width: 330px;
+                                                    
+                                                }
+                                                div.wrap-box-share {
+                                                    padding: 5rem ;
+                                                    background-color: variBg.$color-white;
+                                                    position: relative;
+                                                    top:0;
+                                                    &.show_modal {
+                                                        animation: show_modal_blogs 0.32s linear ;
+                                                        @keyframes show_modal_blogs {
+                                                            from {
+                                                                top:-70px;
+                                                                visibility: hidden;
+                                                                opacity: 0;
+                                                            }
+                                                            to {
+                                                                top:0;
+                                                                visibility: visible;
+                                                                opacity: 1;
+                                                            }
+                                                        }
+                                                    }
+                                                    h4 {
+                                                        color:variBg.$color-green-header;
+                                                        font-size: 2.5rem;
+                                                        font-family: initial;
+                                                    }
+                                                    ul.list-share-blogs {
+                                                        width: 100%;
+                                                        display: flex;
+                                                        justify-content: center;
+                                                        margin-top: 34px;
+                                                        transition: all 0.5s linear;
+                                                        li.post-item-share {
+                                                            margin: 0 30px;
+                                                            @include reponBg.repon-sive(mobile) {
+                                                                margin: 0 15px;
+                                                                
+                                                            }
+                                                            border-radius: 50%;
+                                                            padding: 1.5rem;
+                                                            cursor: pointer;
+                                                            background: var(--color-bgc);
+                                                            svg {
+                                                                fill:variBg.$color-white !important;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            } 
+                        
+                            div.blogs-title-paragrap {
+                                h3{
+                                    text-align: left;
+                                    padding-top: 22px;
+                                    > a {
+                                        font-family: initial;
+                                        font-size:2.7rem;
+                                        color:variBg.$color-green-header;
+                                        transition: all 0.2s linear;
+                                        &:hover {
+                                            color:variBg.$color-box;
+                                        }
+                                    }
+                                } 
+
+                                p {
+                                    transition: all 0.2s linear;
+                                    text-align: left;
+                                    margin-top: 13px;
+                                    font-size: 1.7rem;
+                                    max-width:470px ;
+                                    line-height: 1.6;
+                                    cursor: pointer;
+                                    &:hover {
+                                        color:variBg.$color-box;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    div.blogs-recent {        
+                        display: none;
+                        min-height: 180px;
+                        opacity: 0;
+                        transform: translateY(40px);
+                        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+                        &.show-recent {
+                            display: flex;
+                            animation: effect_recent 0.3s linear forwards;
+                            @keyframes effect_recent {
+                                from {
+                                    opacity: 0;
+                                    display: none;
+                                    transform: translateY(30px);
+                                }
+                                to {
+                                    opacity: 1;
+                                    display: flex;
+                                    transform: translateX(0);
+                                }
+                            }
+                        }
+                        div.box-recent-container {
+                            margin: auto auto;
+                            h3 {
+                                color:variBg.$color-green-drak;
+                                font-size: 3rem;
+                                font-family: initial;
+                                margin-bottom: 13px;
+                            }
+                            span {
+                                color:variBg.$color-green-header;
+                                font-size: 1.9rem;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

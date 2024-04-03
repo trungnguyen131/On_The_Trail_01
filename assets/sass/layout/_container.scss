@@ -1,0 +1,58 @@
+@use "../base" as customContainer;
+// @use "../vendor/reponsive" as reponContainer;
+// @use "../layout/home/video_avatar";
+div#block--container{
+    margin-top: customContainer.$spacing-top;
+    // @include reponContainer.repon-sive(sm-740) {
+    //     text-align: left;
+    // }
+    text-align: center;
+    position: relative;
+
+    div.block-home {
+        padding-bottom: 70px;
+    }
+
+    ///=================== tab-js================
+    div.tab-content.hidden {
+        display: none;
+    }
+    div.tab-content.active {
+        display: block;
+    }
+    div.tab-content-item-1 {
+        animation: effect-op-home 1s ease;
+        @keyframes effect-op-home {
+            0% {
+                opacity: 0;
+                visibility: hidden;
+            }
+            100% {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    div.tab-content:not(:first-child) {
+        animation: effect-op 0.7s ease ;
+        @keyframes effect-op {
+            0% {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-80px);
+            }
+            100% {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+    }
+    
+    @for $run from 2 through 5 {
+        div.tab-content-item-#{$run} {
+            display: none;
+        }
+    } ///=============== end ==================
+}

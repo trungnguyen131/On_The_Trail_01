@@ -1,0 +1,41 @@
+@use "../vendor/reponsive" as reponLogoTitle;
+@mixin logoTitle($h1Color, $spanColor) {
+    div.col.logoTitle {
+        display: none;
+        @include reponLogoTitle.repon-sive(sm-751) {
+            display: block;
+        }
+    }
+    article.logo--title {
+        flex-basis: 28%;
+        a.link-web {
+            display: flex; /// dùng cho thẻ cha, chỉ có thẻ con trực tiếp mới chịu ảnh hưởng
+            align-items: center;
+            svg {
+                width: 5.5rem;
+                height: 5.5rem;
+            }
+            div.item-flex {
+                margin-top: -0.2rem;
+                margin-left: 1.2rem;
+                h1 {
+                    color:#{$h1Color};
+                    font-family: 'Dancing Script', cursive;
+                    font-size:3.3rem ; // 20px
+                }
+    
+                & span {
+                    font-family: 'Poppins', sans-serif;
+                    font-family: sans-serif;
+                    color: #{$spanColor};
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    letter-spacing: 0.2rem;
+                    display: inline-block;
+                    margin-top: inherit;
+                }
+            }
+        }
+    }
+    @content;
+}

@@ -1,0 +1,32 @@
+$repon-1161: "min-width:1161px";
+$repon-960: "max-width: 960px";
+$repon-751: "min-width: 751px";
+$repon-576: "max-width: 576px";
+
+@mixin repon-sive($breakpoint) {
+
+    @if $breakpoint == mobile {
+        @media screen and (#{$repon-576})  {
+            @content;
+        }
+    }
+
+    @if $breakpoint == sm-751 {
+        @media screen and (#{$repon-751})  {
+            @content;
+        }
+    }
+
+    @if $breakpoint == lg {
+        @media screen and (#{$repon-960})  {
+            @content;
+        }
+    }
+
+    @if $breakpoint == xl {
+        @media screen and (#{$repon-1161})  {
+            @content;
+        }
+    }
+
+}

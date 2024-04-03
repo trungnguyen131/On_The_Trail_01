@@ -1,0 +1,45 @@
+///============================= Famework
+@use "./vendor";
+/// =====================================
+/// ========================= WEBSITE =========-
+///============================= Header =======
+@use "./layout/header";
+///====================================
+/// ============================ Navication
+@use "./components/navi_fixed";
+/// ============================ 
+/// =========================== Container
+@use "./layout/container";
+//======== home
+    @use "./pages/home";
+//======== blogs
+    @use "./pages/blogs";
+//======== about-me
+    @use "./pages/about_me";
+//======== work-with-me 
+    @use "./pages/work_with_me";
+//======== contact 
+    @use "./pages/contact";
+/// ========================= footer
+@use "./layout/footer";
+
+/// ============= import 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Dancing+Script:wght@400;600&family=Great+Vibes&family=Karla:wght@200;300;400;500;600;700;800&family=Montserrat:wght@100;300;400;500;600&family=Noto+Sans+KR&family=Poppins:wght@100;200;300;400;500;600&family=Raleway:wght@500&family=Satisfy&display=swap');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,188 @@
+@use "../base" as variCt;
+@use "../abstracts/mixin" as mixCt;
+@use "../vendor/reponsive" as reponCt;
+
+div.contact-box {
+    background-image: url("/app/images/bgc-image-mountain.webp");
+    padding-bottom: 90px;
+    background-position: bottom left;
+    background-repeat: repeat-x;
+    background-size:100% 90%;
+    width: 100%;
+    background-attachment: fixed;
+    background-clip: padding-box;
+    position: relative;
+        div.contact-box-content {
+        position: relative;
+        z-index: 1;
+        margin-top: 100px;
+        div.container-fluid {
+            max-width: 960px;
+            --grid-gutter-x:0px;
+            --grid-gutter-y: 0px;
+            @include reponCt.repon-sive(sm-751) {
+                --grid-gutter-x:60px;
+                --grid-gutter-y:60px;
+            }
+        }
+        h3 {
+            color:rgb(47, 56, 48);
+            font-size: 3.2rem;
+            font-family: initial;
+            margin-bottom: 40px;
+            padding: 80px 30px 0;
+        }
+        nav.contact-us {
+            margin:23px auto 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include reponCt.repon-sive(mobile) {
+                flex-direction: column;
+
+                > * {
+                    margin-top: 30px;
+                }
+            }
+            span.line-contact {
+                display: inline-block;
+                height: 18px;
+                width: 1.5px !important;
+                position: relative;
+                background-color: variCt.$color-black;
+
+                @include reponCt.repon-sive(mobile) {
+                    transform: rotate(90deg);
+                }
+            }
+            
+            li.us-item-info {
+                display: inline-block;
+                padding: 0 30px;
+                position: relative;
+
+                a {
+                    font-size: 2rem;
+                    font-weight: 400;
+                    color: variCt.$color-green-header;
+                }
+
+                &:last-child {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    a {
+                        margin-right:15px ;
+                        color: variCt.$color-black;
+
+                        &:last-child {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        div.form-input-contact {
+            max-width: 720px;
+            --grid-gutter-x:40px;
+            --grid-gutter-y: 40px;
+            form.form-input {
+                width: 100%;
+                div.firstName-input-text {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    div.input-4-first {
+                        margin-bottom: 20px;
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                        width: 100%;
+                        grid-gap: 20px;
+                        @include reponCt.repon-sive(mobile) {
+                            grid-gap: 30px;
+                            
+                        }
+                        div.style-input-all {
+                            text-align: left;
+                            label {
+                                font-size: 1.6rem;
+                                color:#7D837E;
+                                font-weight: 400;
+                                margin-bottom: 8px;
+                                display:inline-block;
+                            }
+                            div.box-input-first-name{
+                                input {
+                                    @include mixCt.reset-border-outline();
+                                    width:100%;
+                                    display:block;
+                                    height: 5rem;
+                                    padding:0 3rem;
+                                    color: variCt.$color-green-header;
+                                    background-color: rgba($color: #ffffff, $alpha: 0.4);
+                                    font-size: 1.7rem;
+                                    border:1.75px solid variCt.$color-green-header;
+                                    &:is(:hover, :focus) {
+                                        border:1.8px solid variCt.$color-green-header;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    div.input-textarea-submit {
+                        
+                        div.content-input-textarea {
+                            text-align: left;
+                            label {
+                                font-size: 1.6rem;
+                                color:#7D837E;
+                                font-weight: 400;
+                                margin-bottom: 8px;
+                                width:100%;
+                                display:block;
+                            }
+                            textarea {
+                                padding:20px;
+                                box-sizing: border-box;
+                                width: 100%;
+                                font-size: 1.7rem;
+                                resize: none;
+                                height:200px;
+                                color: variCt.$color-white;
+                                box-sizing: border-box !important;
+                                @include mixCt.reset-border-outline();
+                                border:1.7px solid variCt.$color-green-header;
+                                background-color: rgba($color: #072403, $alpha: 0.7);
+                                &:is(:hover, :focus) {
+                                    border:1.8px solid variCt.$color-green-header;
+                                }
+                            }
+                        }
+
+                        div.content-input-submit {
+                            margin-top: 30px;
+                            button.btn-submit {
+                                width:100%;
+                                display:block;
+                                height:60px;
+                                text-align: center;
+                                background-color: variCt.$color-box;
+                                @include mixCt.reset-border-outline();
+                                transition: background-color 0.25s linear;
+                                color: variCt.$color-white;
+                                font-size: 1.7rem;
+                                border:1px solid variCt.$color-green-header;
+                                &:hover {
+                                    background-color: variCt.$color-green-header;
+                                }
+                            } 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
